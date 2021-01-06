@@ -158,10 +158,7 @@ public static class ToLuaExport
         "UIWidget.showHandlesWithMoveTool",
         "UIWidget.showHandles",
         "Input.IsJoystickPreconfigured",
-        "UIDrawCall.isActive",
-        "Dictionary.TryAdd",
-        "KeyValuePair.Deconstruct",
-        "ParticleSystem.SetJob"
+        "UIDrawCall.isActive"
     };
 
     class _MethodBase
@@ -295,8 +292,12 @@ public static class ToLuaExport
                 else
                 {
                     Type genericClass = typeof(LuaOut<>);
-                    Type t = genericClass.MakeGenericType(args[i].ParameterType.GetElementType());
-                    list.Add(t);
+                    var elementType = args[i].ParameterType.GetElementType();
+                    if(null != elementType)
+                    {
+                        Type t = genericClass.MakeGenericType(elementType);
+                        list.Add(t);
+                    }
                 }
             }
 

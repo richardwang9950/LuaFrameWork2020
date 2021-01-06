@@ -63,6 +63,7 @@ end
 
 --单击事件--
 function PromptCtrl.OnClick(go)
+    log("TestProtoType" .. TestProtoType)
 	if TestProtoType == ProtocalType.BINARY then
 		this.TestSendBinary();
 	end

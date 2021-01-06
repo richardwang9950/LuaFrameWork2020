@@ -154,6 +154,10 @@ namespace LuaInterface
             EndModule();//Collections     
             EndModule();//end System
 
+            //注册ParticleSystemWrap类
+            UnityEngine_ParticleSystemWrap.Register(this);
+            UnityEngine_MeshRendererWrap.Register(this);
+
             BeginModule("LuaInterface");
             LuaInterface_LuaOutWrap.Register(this);
             LuaInterface_EventObjectWrap.Register(this);
