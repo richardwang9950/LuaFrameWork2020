@@ -24,8 +24,19 @@ namespace LuaFramework {
             InitLuaPath();
             InitLuaBundle();
             this.lua.Start();    //启动LUAVM
+#if UNITY_EDITOR
+            ConnectEmmylua();
+#endif
             this.StartMain();
             this.StartLooper();
+        }
+
+        void ConnectEmmylua() {
+            lua.DoFile("Main.lua");
+            LuaFunction connect = lua.GetFunction("ConnectEmmyLua");
+            connect.Call();
+            connect.Dispose();
+            connect = null;
         }
 
         void StartLooper() {

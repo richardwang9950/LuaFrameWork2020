@@ -28,6 +28,7 @@ namespace LuaFramework {
     public class ThreadManager : Manager {
         private Thread thread;
         private Action<NotiData> func;
+        //提供一组方法和属性，可用于准确地测量运行时间
         private Stopwatch sw = new Stopwatch();
         private string currDownFile = string.Empty;
 

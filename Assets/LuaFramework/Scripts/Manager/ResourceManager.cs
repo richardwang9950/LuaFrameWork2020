@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using LuaInterface;
 using UObject = UnityEngine.Object;
+using UnityEngine.Networking;
 
 public class AssetBundleInfo {
     public AssetBundle m_AssetBundle;
@@ -16,15 +17,23 @@ public class AssetBundleInfo {
         m_ReferencedCount = 0;
     }
 }
-
+/// <summary>
+/// 笔记: 开始的时候就加载AssetBundleManifest 获取其他的包信息
+/// 在实例化物体时 加载其他包的时候的资源可其他的依赖包
+/// </summary>
 namespace LuaFramework {
 
     public class ResourceManager : Manager {
+        //下载URL
         string m_BaseDownloadingURL = "";
         string[] m_AllManifest = null;
+        //所有ab包信息
         AssetBundleManifest m_AssetBundleManifest = null;
+        //ab包依赖
         Dictionary<string, string[]> m_Dependencies = new Dictionary<string, string[]>();
+        //当个ab信息
         Dictionary<string, AssetBundleInfo> m_LoadedAssetBundles = new Dictionary<string, AssetBundleInfo>();
+        //ab包请求信息
         Dictionary<string, List<LoadAssetRequest>> m_LoadRequests = new Dictionary<string, List<LoadAssetRequest>>();
 
         class LoadAssetRequest {
@@ -36,10 +45,13 @@ namespace LuaFramework {
 
         // Load AssetBundleManifest.
         public void Initialize(string manifestName, Action initOK) {
+            //获取包文件位置
             m_BaseDownloadingURL = Util.GetRelativePath();
+            //加载AssetBundleManifest
             LoadAsset<AssetBundleManifest>(manifestName, new string[] { "AssetBundleManifest" }, delegate(UObject[] objs) {
                 if (objs.Length > 0) {
                     m_AssetBundleManifest = objs[0] as AssetBundleManifest;
+                    //获取依赖信息
                     m_AllManifest = m_AssetBundleManifest.GetAllAssetBundles();
                 }
                 if (initOK != null) initOK();
@@ -59,10 +71,12 @@ namespace LuaFramework {
         }
 
         string GetRealAssetPath(string abName) {
+            //abName==StreamingAssets return
             if (abName.Equals(AppConst.AssetDir)) {
                 return abName;
             }
             abName = abName.ToLower();
+            //添加.unity3d后缀
             if (!abName.EndsWith(AppConst.ExtName)) {
                 abName += AppConst.ExtName;
             }
@@ -70,6 +84,8 @@ namespace LuaFramework {
                 return abName;
             }
             //string[] paths = m_AssetBundleManifest.GetAllAssetBundles();  产生GC，需要缓存结果
+
+            //查找依赖包
             for (int i = 0; i < m_AllManifest.Length; i++) {
                 int index = m_AllManifest[i].LastIndexOf('/');  
                 string path = m_AllManifest[i].Remove(0, index + 1);    //字符串操作函数都会产生GC
@@ -105,7 +121,9 @@ namespace LuaFramework {
         }
 
         IEnumerator OnLoadAsset<T>(string abName) where T : UObject {
+            //查找ab包是否已加载
             AssetBundleInfo bundleInfo = GetLoadedAssetBundle(abName);
+            //未查询到 下载
             if (bundleInfo == null) {
                 yield return StartCoroutine(OnLoadAssetBundle(abName, typeof(T)));
 
@@ -152,9 +170,9 @@ namespace LuaFramework {
         IEnumerator OnLoadAssetBundle(string abName, Type type) {
             string url = m_BaseDownloadingURL + abName;
 
-            WWW download = null;
+            UnityWebRequest download = null;
             if (type == typeof(AssetBundleManifest))
-                download = new WWW(url);
+                download = UnityWebRequestAssetBundle.GetAssetBundle(url);
             else {
                 string[] dependencies = m_AssetBundleManifest.GetAllDependencies(abName);
                 if (dependencies.Length > 0) {
@@ -169,11 +187,11 @@ namespace LuaFramework {
                         }
                     }
                 }
-                download = WWW.LoadFromCacheOrDownload(url, m_AssetBundleManifest.GetAssetBundleHash(abName), 0);
+                download = UnityWebRequestAssetBundle.GetAssetBundle(url, m_AssetBundleManifest.GetAssetBundleHash(abName), 0);
             }
-            yield return download;
+            yield return download.SendWebRequest();
 
-            AssetBundle assetObj = download.assetBundle;
+            AssetBundle assetObj = DownloadHandlerAssetBundle.GetContent(download);
             if (assetObj != null) {
                 m_LoadedAssetBundles.Add(abName, new AssetBundleInfo(assetObj));
             }

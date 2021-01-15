@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using LuaInterface;
 using System.Reflection;
 using System.IO;
-
+using UnityEngine.Networking;
 
 namespace LuaFramework {
     public class GameManager : Manager {
@@ -58,11 +58,11 @@ namespace LuaFramework {
             Debug.Log(infile);
             Debug.Log(outfile);
             if (Application.platform == RuntimePlatform.Android) {
-                WWW www = new WWW(infile);
-                yield return www;
+                UnityWebRequest www = UnityWebRequest.Get(infile);
+                yield return www.SendWebRequest();
 
                 if (www.isDone) {
-                    File.WriteAllBytes(outfile, www.bytes);
+                    File.WriteAllBytes(outfile, www.downloadHandler.data);
                 }
                 yield return 0;
             } else File.Copy(infile, outfile, true);
@@ -83,11 +83,11 @@ namespace LuaFramework {
                 if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
                 if (Application.platform == RuntimePlatform.Android) {
-                    WWW www = new WWW(infile);
-                    yield return www;
+                    UnityWebRequest www = UnityWebRequest.Get(infile);
+                    yield return www.SendWebRequest();
 
                     if (www.isDone) {
-                        File.WriteAllBytes(outfile, www.bytes);
+                        File.WriteAllBytes(outfile, www.downloadHandler.data);
                     }
                     yield return 0;
                 } else {
@@ -111,10 +111,12 @@ namespace LuaFramework {
         /// 启动更新下载，这里只是个思路演示，此处可启动线程下载更新
         /// </summary>
         IEnumerator OnUpdateResource() {
+            //不更新资源
             if (!AppConst.UpdateMode) {
                 OnResourceInited();
                 yield break;
             }
+
             string dataPath = Util.DataPath;  //数据目录
             string url = AppConst.WebUrl;
             string message = string.Empty;
@@ -122,7 +124,7 @@ namespace LuaFramework {
             string listUrl = url + "files.txt?v=" + random;
             Debug.LogWarning("LoadUpdate---->>>" + listUrl);
 
-            WWW www = new WWW(listUrl); yield return www;
+            UnityWebRequest www = UnityWebRequest.Get(listUrl); yield return www.SendWebRequest();
             if (www.error != null) {
                 OnUpdateFailed(string.Empty);
                 yield break;
@@ -130,8 +132,8 @@ namespace LuaFramework {
             if (!Directory.Exists(dataPath)) {
                 Directory.CreateDirectory(dataPath);
             }
-            File.WriteAllBytes(dataPath + "files.txt", www.bytes);
-            string filesText = www.text;
+            File.WriteAllBytes(dataPath + "files.txt", www.downloadHandler.data);
+            string filesText = www.downloadHandler.text;
             string[] files = filesText.Split('\n');
 
             for (int i = 0; i < files.Length; i++) {
@@ -232,42 +234,42 @@ namespace LuaFramework {
 
         void OnInitialize() {
             LuaManager.InitStart();
-            LuaManager.DoFile("Logic/Game");         //加载游戏
-            LuaManager.DoFile("Logic/Network");      //加载网络
-            NetManager.OnInit();                     //初始化网络
-            Util.CallMethod("Game", "OnInitOK");     //初始化完成
+            //LuaManager.DoFile("Logic/Game");         //加载游戏
+            //LuaManager.DoFile("Logic/Network");      //加载网络
+            //NetManager.OnInit();                     //初始化网络
+            //Util.CallMethod("Game", "OnInitOK");     //初始化完成
 
             initialize = true;
 
-            //类对象池测试
-            var classObjPool = ObjPoolManager.CreatePool<TestObjectClass>(OnPoolGetElement, OnPoolPushElement);
-            //方法1
-            //objPool.Release(new TestObjectClass("abcd", 100, 200f));
-            //var testObj1 = objPool.Get();
+            ////类对象池测试
+            //var classObjPool = ObjPoolManager.CreatePool<TestObjectClass>(OnPoolGetElement, OnPoolPushElement);
+            ////方法1
+            ////objPool.Release(new TestObjectClass("abcd", 100, 200f));
+            ////var testObj1 = objPool.Get();
 
-            //方法2
-            ObjPoolManager.Release<TestObjectClass>(new TestObjectClass("abcd", 100, 200f));
-            var testObj1 = ObjPoolManager.Get<TestObjectClass>();
+            ////方法2
+            //ObjPoolManager.Release<TestObjectClass>(new TestObjectClass("abcd", 100, 200f));
+            //var testObj1 = ObjPoolManager.Get<TestObjectClass>();
 
-            Debugger.Log("TestObjectClass--->>>" + testObj1.ToString());
+            //Debugger.Log("TestObjectClass--->>>" + testObj1.ToString());
 
-            //游戏对象池测试
-            var prefab = Resources.Load("TestGameObjectPrefab", typeof(GameObject)) as GameObject;
-            var gameObjPool = ObjPoolManager.CreatePool("TestGameObject", 5, 10, prefab);
+            ////游戏对象池测试
+            //var prefab = Resources.Load("TestGameObjectPrefab", typeof(GameObject)) as GameObject;
+            //var gameObjPool = ObjPoolManager.CreatePool("TestGameObject", 5, 10, prefab);
 
-            var gameObj = Instantiate(prefab) as GameObject;
-            gameObj.name = "TestGameObject_01";
-            gameObj.transform.localScale = Vector3.one;
-            gameObj.transform.localPosition = Vector3.zero;
+            //var gameObj = Instantiate(prefab) as GameObject;
+            //gameObj.name = "TestGameObject_01";
+            //gameObj.transform.localScale = Vector3.one;
+            //gameObj.transform.localPosition = Vector3.zero;
 
-            ObjPoolManager.Release("TestGameObject", gameObj);
-            var backObj = ObjPoolManager.Get("TestGameObject");
-            if (backObj != null)
-            {
-                backObj.transform.SetParent(null);
-            }
+            //ObjPoolManager.Release("TestGameObject", gameObj);
+            //var backObj = ObjPoolManager.Get("TestGameObject");
+            //if (backObj != null)
+            //{
+            //    backObj.transform.SetParent(null);
+            //}
 
-            Debug.Log("TestGameObject--->>>" + backObj);
+            //Debug.Log("TestGameObject--->>>" + backObj);
         }
 
         /// <summary>

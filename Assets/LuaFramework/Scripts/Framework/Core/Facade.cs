@@ -30,7 +30,7 @@ public class Facade {
 
     protected Facade() {
         InitFramework();
-    }
+    } 
     protected virtual void InitFramework() {
         if (m_controller != null) return;
         m_controller = Controller.Instance;

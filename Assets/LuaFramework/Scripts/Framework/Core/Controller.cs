@@ -10,7 +10,9 @@ public class Controller : IController {
     protected IDictionary<IView, List<string>> m_viewCmdMap;
 
     protected static volatile IController m_instance;
+    //同步锁标识
     protected readonly object m_syncRoot = new object();
+    //同步锁标识
     protected static readonly object m_staticSyncRoot = new object();
 
     protected Controller() {
@@ -51,12 +53,16 @@ public class Controller : IController {
                 }
             }
         }
+        //有RegisterCommand 要自己实现ICommand类
         if (commandType != null) {  //Controller
+            //动态创建一个类
             object commandInstance = Activator.CreateInstance(commandType);
             if (commandInstance is ICommand) {
                 ((ICommand)commandInstance).Execute(note);
             }
         }
+
+        //没有RegisterCommand 通知view
         if (views != null && views.Count > 0) {
             for (int i = 0; i < views.Count; i++) {
                 views[i].OnMessage(note);

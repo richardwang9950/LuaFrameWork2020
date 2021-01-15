@@ -8,6 +8,7 @@ using UnityEditor;
 using BindType = ToLuaMenu.BindType;
 using UnityEngine.UI;
 using System.Reflection;
+using UnityEngine.Networking;
 
 public static class CustomSettings
 {
@@ -127,7 +128,7 @@ public static class CustomSettings
         _GT(typeof(Space)),      
        
 
-   //     _GT(typeof(MeshRenderer)),
+       // _GT(typeof(MeshRenderer)),
 #if !UNITY_5_4_OR_NEWER
         _GT(typeof(ParticleEmitter)),
         _GT(typeof(ParticleRenderer)),
@@ -172,7 +173,11 @@ public static class CustomSettings
         _GT(typeof(TimerManager)),
         _GT(typeof(ThreadManager)),
         _GT(typeof(NetworkManager)),
-        _GT(typeof(ResourceManager)),		  
+        _GT(typeof(ResourceManager)),	
+        
+        //用户自定义
+        _GT(typeof(LuaComponent)),
+        _GT(typeof(UIEvent)),
     };
 
     public static List<Type> dynamicList = new List<Type>()
