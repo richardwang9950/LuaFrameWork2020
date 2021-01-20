@@ -14,11 +14,23 @@ require "Logic/LuaClass"
 require "Logic/CtrlManager"
 require "Common/functions"
 require "Controller/PromptCtrl"
+require "Common/define"
+require "Component/Player"
+require "Component/GameEnd"
+require "Component/Observer"
+require "Component/WayPoint"
 
 --管理器--
 Game = {};
 local this = Game;
 
+local player;
+local gameEnd;
+local observer;
+local ghost;
+local ghost1;
+local ghost2;
+local ghost3;
 local game; 
 local transform;
 local gameObject;
@@ -37,7 +49,7 @@ function Game.OnInitOK()
     --networkMgr:SendConnect();
 
     --注册LuaView--
-    this.InitViewPanels();
+    -- this.InitViewPanels(); 
 
     -- this.test_class_func();
     -- this.test_pblua_func();
@@ -47,13 +59,52 @@ function Game.OnInitOK()
     -- this.test_sproto_func();
     -- coroutine.start(this.test_coroutine);
 
-    CtrlManager.Init();
-    local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
-    if ctrl ~= nil and AppConst.ExampleMode == 1 then
-        ctrl:Awake();
-    end
+    -- CtrlManager.Init();
+
+    -- local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
+    -- if ctrl ~= nil and AppConst.ExampleMode == 1 then
+    --     ctrl:Awake();
+    -- end
        
-    logWarn('LuaFramework InitOK--->>>');
+    --玩家
+    player= GameObject.Find("Player");
+    LuaComponent.Add(player,Player);
+    --游戏结束
+    gameEnd= GameObject.Find("GameEnding");
+    LuaComponent.Add(gameEnd,GameEnd);
+    --固定守卫
+    observer= GameObject.Find("Gargoyle").transform:Find("PointOfView").gameObject;
+    LuaComponent.Add(observer,Observer);
+   
+   
+
+    --添加ghost
+    ghost= GameObject.Find("Ghost0");
+    local wayPoint= LuaComponent.Add(ghost,WayPoint);
+    wayPoint:addPoint(GameObject.Find("Waypoint").transform)
+    wayPoint:addPoint(GameObject.Find("Waypoint1").transform)
+    LuaFramework.Util.Log(tostring(wayPoint))
+
+    ghost1= GameObject.Find("Ghost1");
+    local wayPoint1=LuaComponent.Add(ghost1,WayPoint);
+    wayPoint1:addPoint(GameObject.Find("Waypoint2").transform)
+    wayPoint1:addPoint(GameObject.Find("Waypoint3").transform)
+    LuaFramework.Util.Log(tostring(wayPoint1))
+
+    ghost2= GameObject.Find("Ghost2");
+    local wayPoint2= LuaComponent.Add(ghost2,WayPoint);  
+    wayPoint2:addPoint(GameObject.Find("Waypoint4").transform)
+    wayPoint2:addPoint(GameObject.Find("Waypoint5").transform)
+    wayPoint2:addPoint(GameObject.Find("Waypoint6").transform)
+    wayPoint2:addPoint(GameObject.Find("Waypoint7").transform)
+    LuaFramework.Util.Log(tostring(wayPoint2))
+
+
+    ghost3= GameObject.Find("Ghost3");
+    local wayPoint3=LuaComponent.Add(ghost3,WayPoint);
+    wayPoint3:addPoint(GameObject.Find("Waypoint8").transform)
+    wayPoint3:addPoint(GameObject.Find("Waypoint9").transform)
+    LuaFramework.Util.Log(tostring(wayPoint3))
 end
 
 --测试协同--

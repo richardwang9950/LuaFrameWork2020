@@ -17,9 +17,10 @@ public class LuaComponent : MonoBehaviour
 
         LuaTable tab = fun.Invoke<LuaTable, LuaTable>(tableClass);
         LuaComponent cmp = go.AddComponent<LuaComponent>();
-        cmp.table = tab;
+        cmp.table =  tab;
         cmp.CallAwake();
         return cmp.table;
+      
     }
 
     //获取lua组件
@@ -30,7 +31,8 @@ public class LuaComponent : MonoBehaviour
         {
             string mat1 = table.ToString();
             string mat2 = cmp.table.GetMetaTable().ToString();
-            if (mat1 == mat2) return cmp.table;
+            if (mat1 == mat2) 
+                return cmp.table;
         }
         return null;
     }
@@ -59,11 +61,70 @@ public class LuaComponent : MonoBehaviour
             fun.Call(table, gameObject);
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    void FixedUpdate()
     {
-        //略
+        //效率问题有待测试和优化
+        //可在lua中调用UpdateBeat替代
+        LuaFunction fun = table.GetLuaFunction("FixedUpdate");
+        if (fun != null)
+            fun.Call(table, gameObject);
+    }
+
+     void OnAnimatorMove()
+    {
+        LuaFunction fun = table.GetLuaFunction("OnAnimatorMove");
+        if (fun != null)
+            fun.Call(table, gameObject);
     }
 
 
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        LuaFunction fun = table.GetLuaFunction("OnCollisionEnter");
+        if (fun != null)
+            fun.Call(table, collisionInfo);
+    }
 
+    void OnCollisionStay(Collision collisionInfo)
+    {
+        LuaFunction fun = table.GetLuaFunction("OnCollisionStay");
+        if (fun != null) {
+            fun.Call(table, collisionInfo);
+        }
+    }
+
+    void OnCollisionExit(Collision collisionInfo)
+    {
+        LuaFunction fun = table.GetLuaFunction("OnCollisionExit");
+        if (fun != null)
+        {
+            fun.Call(table, collisionInfo);
+        }
+    }
+
+    void OnTriggerEnter(Collider other) {
+        LuaFunction fun = table.GetLuaFunction("OnTriggerEnter");
+        if (fun != null)
+        {
+            fun.Call(table, other);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        LuaFunction fun = table.GetLuaFunction("OnTriggerStay");
+        if (fun != null)
+        {
+            fun.Call(table, other);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        LuaFunction fun = table.GetLuaFunction("OnTriggerExit");
+        if (fun != null)
+        {
+            fun.Call(table, other);
+        }
+    }
 }

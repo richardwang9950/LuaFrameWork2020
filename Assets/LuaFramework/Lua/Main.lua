@@ -18,8 +18,20 @@ function Main()
 	-- networkMgr:SendConnect();
 
 	-------  sound    ------
-	soundMgr=LuaHelper.GetSoundManager();
-	soundMgr:PlayBacksound("Audio/SFXBuzzingLight",true)
+	--soundMgr=LuaHelper.GetSoundManager();
+	--soundMgr:PlayBacksound("Audio/SFXBuzzingLight",true)
+
+	-----------      ---------------
+	-- local go = UnityEngine.GameObject ('go')
+	-- local tankCmp1 = LuaComponent.Add(go,TankCmp)
+	-- tankCmp1.name = "Tank1"
+	-- --组件2
+	-- local go2 = UnityEngine.GameObject ('go2')
+	-- LuaComponent.Add(go2,TankCmp)
+	-- local tankCmp2 = LuaComponent.Get(go2,TankCmp)
+	-- tankCmp2.name = "Tank2"
+	  
+
 end
 
 --场景切换通知

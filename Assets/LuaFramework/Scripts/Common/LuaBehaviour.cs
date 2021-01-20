@@ -10,6 +10,8 @@ namespace LuaFramework {
         private string data = null;
         private Dictionary<string, LuaFunction> buttons = new Dictionary<string, LuaFunction>();
 
+        [SerializeField]
+        private string m_name = "";
         protected void Awake() {
             Util.CallMethod(name, "Awake", gameObject);
         }
@@ -17,6 +19,18 @@ namespace LuaFramework {
         protected void Start() {
             Util.CallMethod(name, "Start");
         }
+
+        protected void Update()
+        {
+            Util.CallMethod(name, "Update");
+        }
+
+        protected void FixedUpdate()
+        {
+            Util.CallMethod(name, "FixedUpdate");
+        }
+
+
 
         protected void OnClick() {
             Util.CallMethod(name, "OnClick");
@@ -35,6 +49,40 @@ namespace LuaFramework {
             go.GetComponent<Button>().onClick.AddListener(
                 delegate() {
                     luafunc.Call(go);
+                }
+            );
+        }
+
+        /// <summary>
+        /// 给Toggle组件添加监听
+        /// </summary>
+        public void AddToggle(GameObject go, LuaFunction luafunc)
+        {
+            if (go == null || luafunc == null) return;
+            buttons.Add(go.name, luafunc);
+            go.GetComponent<Toggle>().onValueChanged.AddListener(
+                delegate (bool select) {
+                    luafunc.Call(go, select);
+                }
+            );
+        }
+
+        //给输入组件（InputField）添加结束编辑(OnEndEdit)监听
+        public static void AddInputFieldEndEditHandler(GameObject go, LuaFunction luafunc)
+        {
+            if (go == null || luafunc == null) return;
+
+            InputField input = go.GetComponent<InputField>();
+
+            if (input == null)
+            {
+                Debug.LogError(go.name + "找不到InputField组件");
+                return;
+            }
+
+            go.GetComponent<InputField>().onEndEdit.AddListener(
+                delegate (string text) {
+                    luafunc.Call(text);
                 }
             );
         }

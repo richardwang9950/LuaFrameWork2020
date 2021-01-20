@@ -8,6 +8,8 @@ public class LuaFramework_LuaBehaviourWrap
 	{
 		L.BeginClass(typeof(LuaFramework.LuaBehaviour), typeof(View));
 		L.RegFunction("AddClick", AddClick);
+		L.RegFunction("AddToggle", AddToggle);
+		L.RegFunction("AddInputFieldEndEditHandler", AddInputFieldEndEditHandler);
 		L.RegFunction("RemoveClick", RemoveClick);
 		L.RegFunction("ClearClick", ClearClick);
 		L.RegFunction("__eq", op_Equality);
@@ -25,6 +27,41 @@ public class LuaFramework_LuaBehaviourWrap
 			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 2, typeof(UnityEngine.GameObject));
 			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 3);
 			obj.AddClick(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddToggle(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			LuaFramework.LuaBehaviour obj = (LuaFramework.LuaBehaviour)ToLua.CheckObject<LuaFramework.LuaBehaviour>(L, 1);
+			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 2, typeof(UnityEngine.GameObject));
+			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 3);
+			obj.AddToggle(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddInputFieldEndEditHandler(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+			LuaFramework.LuaBehaviour.AddInputFieldEndEditHandler(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)

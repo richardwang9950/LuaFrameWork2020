@@ -8,6 +8,10 @@ public class UIEventWrap
 	{
 		L.BeginClass(typeof(UIEvent), typeof(System.Object));
 		L.RegFunction("AddButtonClick", AddButtonClick);
+		L.RegFunction("AddToggle", AddToggle);
+		L.RegFunction("AddInputFieldEndEditHandler", AddInputFieldEndEditHandler);
+		L.RegFunction("AddPointerDownUpSupport", AddPointerDownUpSupport);
+		L.RegFunction("AddSliderOnChangeEvent", AddSliderOnChangeEvent);
 		L.RegFunction("ClearButtonClick", ClearButtonClick);
 		L.RegFunction("New", _CreateUIEvent);
 		L.RegFunction("__tostring", ToLua.op_ToString);
@@ -43,10 +47,111 @@ public class UIEventWrap
 	{
 		try
 		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+				LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+				UIEvent.AddButtonClick(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+				LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+				LuaTable arg2 = ToLua.CheckLuaTable(L, 3);
+				UIEvent.AddButtonClick(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UIEvent.AddButtonClick");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddToggle(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+				LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+				UIEvent.AddToggle(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+				LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+				LuaTable arg2 = ToLua.CheckLuaTable(L, 3);
+				UIEvent.AddToggle(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UIEvent.AddToggle");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddInputFieldEndEditHandler(IntPtr L)
+	{
+		try
+		{
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
-			UIEvent.AddButtonClick(arg0, arg1);
+			UIEvent.AddInputFieldEndEditHandler(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddPointerDownUpSupport(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+			LuaFunction arg2 = ToLua.CheckLuaFunction(L, 3);
+			UIEvent.AddPointerDownUpSupport(arg0, arg1, arg2);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddSliderOnChangeEvent(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
+			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
+			UIEvent.AddSliderOnChangeEvent(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#define USING_DOTWEENING
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 using LuaInterface;
@@ -7,8 +8,10 @@ using UnityEditor;
 
 using BindType = ToLuaMenu.BindType;
 using UnityEngine.UI;
+using UnityEngine.AI;
 using System.Reflection;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public static class CustomSettings
 {
@@ -45,6 +48,8 @@ public static class CustomSettings
         _DT(typeof(System.Action<int>)),
         _DT(typeof(System.Comparison<int>)),
         _DT(typeof(System.Func<int, int>)),
+        _DT(typeof(DG.Tweening.TweenCallback)),
+
     };
 
     //在这里添加你要导出注册到lua的类型列表
@@ -114,6 +119,13 @@ public static class CustomSettings
         _GT(typeof(CameraClearFlags)),
         _GT(typeof(AudioClip)),        
         _GT(typeof(AssetBundle)),
+
+    
+        _GT(typeof(CanvasGroup)),
+        _GT(typeof(NavMeshAgent)),
+        _GT(typeof(SceneManager)),
+
+
         //_GT(typeof(ParticleSystem)),
         _GT(typeof(AsyncOperation)).SetBaseType(typeof(System.Object)),        
         _GT(typeof(LightType)),
@@ -127,7 +139,7 @@ public static class CustomSettings
         _GT(typeof(SkinnedMeshRenderer)),
         _GT(typeof(Space)),      
        
-
+       
        // _GT(typeof(MeshRenderer)),
 #if !UNITY_5_4_OR_NEWER
         _GT(typeof(ParticleEmitter)),

@@ -44,29 +44,29 @@ end
 return Event
 
 
-UpdateBeat =event("Update",true)
-LateUpdateBeat =event("LateUpdate",true)
-FixedUpdateBeat =event("FixedUpdate",true)
-CoUpdateBeat =event("CoUpdate",true)
+-- UpdateBeat =event("Update",true)
+-- LateUpdateBeat =event("LateUpdate",true)
+-- FixedUpdateBeat =event("FixedUpdate",true)
+-- CoUpdateBeat =event("CoUpdate",true)
 
-local Time =Time
-local UpdateBeat =UpdateBeat
-local LateUpdateBeat=LateUpdateBeat
-local FixedUpdateBeat=FixedUpdateBeat
-local CoUpdateBeat=CoUpdateBeat
+-- local Time =Time
+-- local UpdateBeat =UpdateBeat
+-- local LateUpdateBeat=LateUpdateBeat
+-- local FixedUpdateBeat=FixedUpdateBeat
+-- local CoUpdateBeat=CoUpdateBeat
 
-function Update(deltaTime,unscaleDeltaTime)
-	Time:SetDeltaTime(deltaTime,unscaleDeltaTime)
-	UpdateBeat()
-end
+-- function Update(deltaTime,unscaleDeltaTime)
+-- 	Time:SetDeltaTime(deltaTime,unscaleDeltaTime)
+-- 	UpdateBeat()
+-- end
 
-function LateUpdate()
-	LateUpdateBeat()
-	CoUpdateBeat()
-	Time:SetFrameCount()
-end
+-- function LateUpdate()
+-- 	LateUpdateBeat()
+-- 	CoUpdateBeat()
+-- 	Time:SetFrameCount()
+-- end
 
-function FixedUpdate(fixDalteTime)
-	Time:SetFixedDelta(fixDalteTime)
-	FixedUpdateBeat()
-end
+-- function FixedUpdate(fixDalteTime)
+-- 	Time:SetFixedDelta(fixDalteTime)
+-- 	FixedUpdateBeat()
+-- end
