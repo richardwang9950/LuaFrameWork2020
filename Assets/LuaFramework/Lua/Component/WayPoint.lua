@@ -4,7 +4,7 @@ require "Component.Observer"
 WayPoint={
     navMeshAgent=nil,
     waypoints={},
-    m_CurrentWaypointIndex=1
+    m_CurrentWaypointIndex=1,
 }
 function WayPoint:Start(gameObject)
     self.navMeshAgent=gameObject:GetComponent("NavMeshAgent");

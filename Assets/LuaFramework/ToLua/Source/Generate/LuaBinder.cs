@@ -67,7 +67,6 @@ public static class LuaBinder
 		L.BeginModule("UnityEngine");
 		UnityEngine_ComponentWrap.Register(L);
 		UnityEngine_TransformWrap.Register(L);
-		UnityEngine_LightWrap.Register(L);
 		UnityEngine_MaterialWrap.Register(L);
 		UnityEngine_CameraWrap.Register(L);
 		UnityEngine_AudioSourceWrap.Register(L);
@@ -89,6 +88,7 @@ public static class LuaBinder
 		UnityEngine_AudioClipWrap.Register(L);
 		UnityEngine_AssetBundleWrap.Register(L);
 		UnityEngine_CanvasGroupWrap.Register(L);
+		UnityEngine_DebugWrap.Register(L);
 		UnityEngine_AsyncOperationWrap.Register(L);
 		UnityEngine_LightTypeWrap.Register(L);
 		UnityEngine_SleepTimeoutWrap.Register(L);

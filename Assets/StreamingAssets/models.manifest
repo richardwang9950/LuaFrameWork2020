@@ -1,0 +1,81 @@
+ManifestFileVersion: 0
+CRC: 1156897436
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 96656a610a98bf52dab5130365f57355
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d0b642f0e69b346828342fd4e6571643
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/Bathroom/BathTub.fbx
+- Assets/Models/Characters/JohnLemon.fbx
+- Assets/Models/Diningroom/Rug.FBX
+- Assets/Models/Corridor/PictureFrame_Wolf.FBX
+- Assets/Models/Corridor/Wall_Straight_Exterior_03.fbx
+- Assets/Models/Bathroom/Sink.fbx
+- Assets/Models/Bathroom/Mirror.fbx
+- Assets/Models/Corridor/Wall_Straight_Exterior_04.fbx
+- Assets/Models/Bathroom/Bathtub_Leg.fbx
+- Assets/Models/Characters/Gargoyle.fbx
+- Assets/Models/Corridor/Wall_Straight_Exterior_01.fbx
+- Assets/Models/Corridor/Rug_Corridor.FBX
+- Assets/Models/Corridor/Wall_Window_02.fbx
+- Assets/Models/Corridor/CeilingPlane.fbx
+- Assets/Models/Corridor/Wall_Window_01.fbx
+- Assets/Models/Corridor/FloorPlane.fbx
+- Assets/Models/Corridor/PictureFrame_CatLady.FBX
+- Assets/Models/Bedroom/Bedside_Table.fbx
+- Assets/Models/Corridor/Wall_Corner_Interior.fbx
+- Assets/Models/Diningroom/Table.FBX
+- Assets/Models/Diningroom/Chair_01.FBX
+- Assets/Models/Bathroom/Pipe.fbx
+- Assets/Models/Corridor/Wall_Straight_01.fbx
+- Assets/Models/Corridor/PictureFrame_StraightThin.FBX
+- Assets/Models/Corridor/Light.FBX
+- Assets/Models/Corridor/Wall_Straight_02.fbx
+- Assets/Models/Corridor/PictureFrame_GhostMan.FBX
+- Assets/Models/Corridor/Wall_Corner_Exterior_Out.fbx
+- Assets/Models/Corridor/EndPost.FBX
+- Assets/Models/Diningroom/Chair_02.FBX
+- Assets/Models/Corridor/PictureFrame_Curvy.FBX
+- Assets/Models/Corridor/Wall_Corner_Exterior_In.fbx
+- Assets/Models/Corridor/Wall_Proto.fbx
+- Assets/Models/Diningroom/Clock.FBX
+- Assets/Models/Diningroom/Floor_Diningroom.fbx
+- Assets/Models/Bedroom/Bed.FBX
+- Assets/Models/Diningroom/CandleStick.FBX
+- Assets/Models/Diningroom/Fireplace.FBX
+- Assets/Models/Corridor/Door.FBX
+- Assets/Models/Corridor/Wall_Windows_Straight.fbx
+- Assets/Models/Bedroom/Wardrobe.fbx
+- Assets/Models/Bathroom/Radiator.fbx
+- Assets/Models/Diningroom/Monster_Lamp.fbx
+- Assets/Models/Corridor/PictureFrame_MrMan.FBX
+- Assets/Models/Corridor/Wall_Straight_Exterior_02.fbx
+- Assets/Models/Characters/Ghost.fbx
+- Assets/Models/VFX/DropSplash.fbx
+Dependencies:
+- D:/unityProject/LuaFrameWork2020/AssetBundles/StandaloneWindows/materials

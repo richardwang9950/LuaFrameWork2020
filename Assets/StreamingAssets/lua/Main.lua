@@ -1,5 +1,6 @@
 --主入口函数。从这里开始lua逻辑
 require "Component/TankCmp"
+require"Network/Network"
 local go;
 function Main()					
 	--print("logic start")
@@ -8,8 +9,29 @@ function Main()
 	LuaHelper = LuaFramework.LuaHelper;
 	resMgr = LuaHelper.GetResManager();
 	--resMgr:LoadPrefab('tank', { 'tank' }, OnLoadFinish);
-	resMgr:LoadPrefab('Panel', { 'Panel' }, OnLoadFinish);
-	
+	--resMgr:LoadPrefab('tank', { 'Panel' }, OnLoadFinish);
+	--------------- network------------------
+	-- local networkMgr=LuaHelper.GetNetManager()
+	-- local AppConst =LuaFramework.AppConst
+	-- AppConst.SocketPort=11234
+	-- AppConst.SocketAddress="127.0.0.1"
+	-- networkMgr:SendConnect();
+
+	-------  sound    ------
+	--soundMgr=LuaHelper.GetSoundManager();
+	--soundMgr:PlayBacksound("Audio/SFXBuzzingLight",true)
+
+	-----------      ---------------
+	-- local go = UnityEngine.GameObject ('go')
+	-- local tankCmp1 = LuaComponent.Add(go,TankCmp)
+	-- tankCmp1.name = "Tank1"
+	-- --组件2
+	-- local go2 = UnityEngine.GameObject ('go2')
+	-- LuaComponent.Add(go2,TankCmp)
+	-- local tankCmp2 = LuaComponent.Get(go2,TankCmp)
+	-- tankCmp2.name = "Tank2"
+	  
+
 end
 
 --场景切换通知
@@ -25,10 +47,12 @@ end
 function OnLoadFinish(objs)
 	go = UnityEngine.GameObject.Instantiate(objs[0]);
 	local parent = UnityEngine.GameObject.Find("Canvas")
-    go.transform:SetParent(parent.transform);
+	go.transform:SetParent(parent.transform);
+	go.transform.localScale = Vector3.one;
+    go.transform.localPosition = Vector3.zero;
 	LuaFramework.Util.Log("Finish");
 	--LuaComponent.Add(go,TankCmp)
-	local btn = go.transform:FindChild("Button").gameObject
+	local btn = go.transform:Find("Button").gameObject
 	UIEvent.AddButtonClick(btn, OnClick)
 end
 

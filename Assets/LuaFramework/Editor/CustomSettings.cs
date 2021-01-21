@@ -82,7 +82,7 @@ public static class CustomSettings
         _GT(typeof(DG.Tweening.RotateMode)),
         _GT(typeof(Component)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Transform)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
-        _GT(typeof(Light)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
+       // _GT(typeof(Light)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Material)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Rigidbody)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Camera)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
@@ -122,6 +122,7 @@ public static class CustomSettings
 
     
         _GT(typeof(CanvasGroup)),
+        _GT(typeof(Debug)),
         _GT(typeof(NavMeshAgent)),
         _GT(typeof(SceneManager)),
 

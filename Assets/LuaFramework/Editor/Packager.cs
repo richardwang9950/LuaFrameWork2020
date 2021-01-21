@@ -51,6 +51,19 @@ public class Packager {
         BuildAssetResource(BuildTarget.StandaloneWindows);
     }
 
+    [MenuItem("LuaFramework/Build File", false, 103)]
+    public static void BuildFile()
+    {
+        //创建资源对比文件
+        BuildFileIndex();
+        // Application.dataPath:"D:/unityProject/LuaFrameWork2020/Assets"
+        string streamDir = Application.dataPath + "/" + AppConst.LuaTempDir;
+        if (Directory.Exists(streamDir)) Directory.Delete(streamDir, true);
+        AssetDatabase.Refresh();
+    }
+
+
+  
     /// <summary>
     /// 生成绑定素材
     /// </summary>
@@ -66,21 +79,24 @@ public class Packager {
         AssetDatabase.Refresh();
 
         maps.Clear();
+        //处理lua文件
         if (AppConst.LuaBundleMode) {
             HandleLuaBundle();
         } else {
             HandleLuaFile();
         }
-        if (AppConst.ExampleMode) {
-            HandleExampleBundle();
-        }
+        //处理资源文件
+        //if (AppConst.ExampleMode) {
+        //    HandleExampleBundle();
+        //}
         string resPath = "Assets/" + AppConst.AssetDir;
         BuildPipeline.BuildAssetBundles(resPath, maps.ToArray(), BuildAssetBundleOptions.None, target);
-        BuildFileIndex();
-
-        string streamDir = Application.dataPath + "/" + AppConst.LuaTempDir;
-        if (Directory.Exists(streamDir)) Directory.Delete(streamDir, true);
-        AssetDatabase.Refresh();
+        ////创建资源对比文件
+        //BuildFileIndex();
+        //// Application.dataPath:"D:/unityProject/LuaFrameWork2020/Assets"
+        //string streamDir = Application.dataPath + "/" + AppConst.LuaTempDir;
+        //if (Directory.Exists(streamDir)) Directory.Delete(streamDir, true);
+        //AssetDatabase.Refresh();
     }
 
     static void AddBuildMap(string bundleName, string pattern, string path) {
@@ -96,6 +112,7 @@ public class Packager {
         maps.Add(build);
     }
 
+  
     /// <summary>
     /// 处理Lua代码包
     /// </summary>
@@ -161,12 +178,12 @@ public class Packager {
         string resPath = AppDataPath + "/" + AppConst.AssetDir + "/";
         if (!Directory.Exists(resPath)) Directory.CreateDirectory(resPath);
 
-        AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");
-        AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Message");
+        //AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");
+        //AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Message");
 
-        AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Prompt");
-        AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Shared");
-        AddBuildMap("tank" + AppConst.ExtName, "*.prefab", "Assets/Tank");
+        //AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Prompt");
+        //AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Shared");
+        //AddBuildMap("tank" + AppConst.ExtName, "*.prefab", "Assets/Tank");
     }
     
     /// <summary>

@@ -10,17 +10,18 @@ Observer={
 function Observer:Start(gameObject)
     self.player=GameObject.Find("Player").transform;
     local object=GameObject.Find("GameEnding")
-       local s=GameEnd
     self.gameEnding=LuaComponent.Get(object ,GameEnd); 
 end
 
 function Observer:Update(gameObject)
+  
     if(self.m_IsPlayerInRange)then 
-        local direction= self.player.position-gameObject.transform.position+Vector3.up;
+        local direction= self.player.position-gameObject.transform.position;
         local ray= Ray.New(gameObject.transform.position,direction)
+        Debug.DrawRay(gameObject.transform.position, direction,Color.red);
         if (Physics.Raycast(ray)) then
-          local isRay,raycastHit=Physics.Raycast(ray, nil)
-            if (isRay) then 
+         local isRay,raycastHit=Physics.Raycast(ray, nil)
+             if (isRay) then 
                 if (raycastHit.collider.transform == self.player) then
                     self.gameEnding:CaughtPlayer();
                 end
@@ -31,8 +32,8 @@ end
 
 
 function Observer:OnTriggerEnter(other) 
-    LuaFramework.Util.Log("Observer:OnTriggerEnter");
     if(other.transform==self.player) then 
+        LuaFramework.Util.Log("Observer:OnTriggerEnter");
         self.m_IsPlayerInRange=true;
     end
 end

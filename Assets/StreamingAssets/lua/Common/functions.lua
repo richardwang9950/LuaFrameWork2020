@@ -48,3 +48,12 @@ function findPanel(str)
 	end
 	return obj:GetComponent("BaseLua");
 end
+
+
+function getArrLength(tabletest)
+	local count=0
+	for k,v in pairs(tabletest) do
+		count = count + 1
+	end
+	return count
+end
