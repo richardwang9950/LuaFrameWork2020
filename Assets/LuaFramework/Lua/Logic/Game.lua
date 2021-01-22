@@ -34,7 +34,7 @@ local ghost3;
 local game; 
 local transform;
 local gameObject;
-local WWW = UnityEngine.WWW;
+local  UnityWebRequest = UnityEngine.Networking.UnityWebRequest;
 
 function Game.InitViewPanels()
 	for i = 1, #PanelNames do
@@ -57,7 +57,7 @@ function Game.OnInitOK()
     -- this.test_pbc_func();
     -- this.test_lpeg_func();
     -- this.test_sproto_func();
-    -- coroutine.start(this.test_coroutine);
+    coroutine.start(this.test_coroutine);
 
     -- CtrlManager.Init();
 
@@ -86,26 +86,26 @@ function Game.OnInitOK()
     LuaFramework.Util.Log(tostring(wayPoint))
  
 
-    -- ghost1= GameObject.Find("Ghost1");
-    -- local wayPoint1=LuaComponent.Add(ghost1,WayPoint);
-    -- wayPoint1:addPoint(GameObject.Find("Waypoint2").transform)
-    -- wayPoint1:addPoint(GameObject.Find("Waypoint3").transform)
-    -- LuaFramework.Util.Log(tostring(wayPoint1))
+    ghost1= GameObject.Find("Ghost1");
+    local wayPoint1=LuaComponent.Add(ghost1,WayPoint);
+    wayPoint1:addPoint(GameObject.Find("Waypoint2").transform)
+    wayPoint1:addPoint(GameObject.Find("Waypoint3").transform)
+    LuaFramework.Util.Log(tostring(wayPoint1))
 
-    -- ghost2= GameObject.Find("Ghost2");
-    -- local wayPoint2= LuaComponent.Add(ghost2,WayPoint);  
-    -- wayPoint2:addPoint(GameObject.Find("Waypoint4").transform)
-    -- wayPoint2:addPoint(GameObject.Find("Waypoint5").transform)
-    -- wayPoint2:addPoint(GameObject.Find("Waypoint6").transform)
-    -- wayPoint2:addPoint(GameObject.Find("Waypoint7").transform)
-    -- LuaFramework.Util.Log(tostring(wayPoint2))
+    ghost2= GameObject.Find("Ghost2");
+    local wayPoint2= LuaComponent.Add(ghost2,WayPoint);  
+    wayPoint2:addPoint(GameObject.Find("Waypoint4").transform)
+    wayPoint2:addPoint(GameObject.Find("Waypoint5").transform)
+    wayPoint2:addPoint(GameObject.Find("Waypoint6").transform)
+    wayPoint2:addPoint(GameObject.Find("Waypoint7").transform)
+    LuaFramework.Util.Log(tostring(wayPoint2))
 
 
-    -- ghost3= GameObject.Find("Ghost3");
-    -- local wayPoint3=LuaComponent.Add(ghost3,WayPoint);
-    -- wayPoint3:addPoint(GameObject.Find("Waypoint8").transform)
-    -- wayPoint3:addPoint(GameObject.Find("Waypoint9").transform)
-    -- LuaFramework.Util.Log(tostring(wayPoint3))
+    ghost3= GameObject.Find("Ghost3");
+    local wayPoint3=LuaComponent.Add(ghost3,WayPoint);
+    wayPoint3:addPoint(GameObject.Find("Waypoint8").transform)
+    wayPoint3:addPoint(GameObject.Find("Waypoint9").transform)
+    LuaFramework.Util.Log(tostring(wayPoint3))
 end
 
 --测试协同--
@@ -114,9 +114,9 @@ function Game.test_coroutine()
     coroutine.wait(1);	
     logWarn("2222");
 	
-    local www = WWW("http://bbs.ulua.org/readme.txt");
-    coroutine.www(www);
-    logWarn(www.text);    	
+    local www = UnityWebRequest.Get("http://bbs.ulua.org/readme.txt");
+    coroutine.www(www:SendWebRequest());
+    logWarn(www.downloadHandler.text);    	
 end
 
 --测试sproto--

@@ -83,7 +83,6 @@ public static class LuaBinder
 		UnityEngine_Texture2DWrap.Register(L);
 		UnityEngine_ShaderWrap.Register(L);
 		UnityEngine_RendererWrap.Register(L);
-		UnityEngine_WWWWrap.Register(L);
 		UnityEngine_ScreenWrap.Register(L);
 		UnityEngine_CameraClearFlagsWrap.Register(L);
 		UnityEngine_AudioClipWrap.Register(L);
@@ -109,6 +108,12 @@ public static class LuaBinder
 		UnityEngine_ResourcesWrap.Register(L);
 		UnityEngine_RectTransformWrap.Register(L);
 		UnityEngine_AudioBehaviourWrap.Register(L);
+		L.BeginModule("Networking");
+		UnityEngine_Networking_UnityWebRequestWrap.Register(L);
+		UnityEngine_Networking_UnityWebRequestAsyncOperationWrap.Register(L);
+		UnityEngine_Networking_DownloadHandlerWrap.Register(L);
+		UnityEngine_Networking_DownloadHandlerBufferWrap.Register(L);
+		L.EndModule();
 		L.BeginModule("AI");
 		UnityEngine_AI_NavMeshAgentWrap.Register(L);
 		L.EndModule();

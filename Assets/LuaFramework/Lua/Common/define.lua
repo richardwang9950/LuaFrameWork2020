@@ -29,7 +29,7 @@ panelMgr = LuaHelper.GetPanelManager();
 soundMgr = LuaHelper.GetSoundManager();
 networkMgr = LuaHelper.GetNetManager();
 
-WWW = UnityEngine.WWW;
+UnityWebRequest = UnityEngine.Networking.UnityWebRequest;
 GameObject = UnityEngine.GameObject;
 Input = UnityEngine.Input;
 RigidBody = UnityEngine.Rigidbody;
