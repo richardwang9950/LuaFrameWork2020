@@ -951,7 +951,7 @@ public static class ToLuaMenu
         AssetDatabase.Refresh();
     }
 
-    public static void CopyLuaBytesFiles(string sourceDir, string destDir, bool appendext = true, string searchPattern = "*.lua", SearchOption option = SearchOption.AllDirectories)
+   public static void CopyLuaBytesFiles(string sourceDir, string destDir, bool appendext = true, string searchPattern = "*.lua", SearchOption option = SearchOption.AllDirectories)
     {
         if (!Directory.Exists(sourceDir))
         {
@@ -1045,7 +1045,7 @@ public static class ToLuaMenu
 #if UNITY_5_3_OR_NEWER        
         else if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.iOS)
 #else
-        else if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.iOS)
+        else if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.iPhone)
 #endif        
         {
             //Debug.Log("iOS默认用64位，32位自行考虑");

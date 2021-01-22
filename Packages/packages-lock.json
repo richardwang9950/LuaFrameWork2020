@@ -30,6 +30,12 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.assetbundlebrowser": {
+      "version": "file:C:/Users/Administrator/Desktop/AssetBundles-Browser-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.cinemachine": {
       "version": "2.6.3",
       "depth": 0,
@@ -100,7 +106,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.1",
+      "version": "3.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {

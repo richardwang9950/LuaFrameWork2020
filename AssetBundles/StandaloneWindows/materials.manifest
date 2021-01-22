@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 1814912252
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 29dcf0c0aba989dfe0cd3493a6d279ea
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8215722b766c6decafa3f90512650b44
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Materials/Corridor/Window.mat
+- Assets/Materials/Characters/JohnToon.mat
+- Assets/Materials/BedRoom/Wardrobe.mat
+- Assets/Materials/Characters/Light_Cone.mat
+- Assets/Materials/VFX/Skybox.mat
+- Assets/Materials/Corridor/Wall_Corridor.mat
+- Assets/Materials/BedRoom/Bed.mat
+- Assets/Materials/DiningRoom/Monster_Lamp.mat
+- Assets/Materials/Characters/JohnPBR.mat
+- Assets/Materials/DiningRoom/Clock.mat
+- Assets/Materials/Bathroom/Wall_Bathroom.mat
+- Assets/Materials/Bathroom/Radiator.mat
+- Assets/Materials/Bathroom/Pipes.mat
+- Assets/Materials/DiningRoom/Fireplace.mat
+- Assets/Materials/Corridor/Light_Glass.mat
+- Assets/Materials/Bathroom/Sink.mat
+- Assets/Materials/DiningRoom/Wall_Diningroom.mat
+- Assets/Materials/Corridor/Floor.mat
+- Assets/Materials/DiningRoom/Floor.mat
+- Assets/Materials/Bathroom/Mirror.mat
+- Assets/Materials/Bathroom/Floor.mat
+- Assets/Materials/BedRoom/Bedside.mat
+- Assets/Materials/VFX/PlaneFog.mat
+- Assets/Materials/Bathroom/Bathtub.mat
+- Assets/Materials/Corridor/Light.mat
+- Assets/Materials/VFX/CandleFlame.mat
+- Assets/Materials/VFX/Emissive.mat
+- Assets/Materials/BedRoom/Floor.mat
+- Assets/Materials/Bathroom/BathtubLeg.mat
+- Assets/Materials/DiningRoom/Table.mat
+- Assets/Materials/DiningRoom/Chair.mat
+- Assets/Materials/VFX/WaterDropSmall.mat
+- Assets/Materials/Corridor/Rugs.mat
+- Assets/Materials/VFX/Splash.mat
+- Assets/Materials/Bathroom/Walls.mat
+- Assets/Materials/Corridor/PictureFrame.mat
+- Assets/Materials/BedRoom/Wall_Bedroom.mat
+- Assets/Materials/VFX/DustMote.mat
+- Assets/Materials/Characters/Ghost.mat
+- Assets/Materials/Corridor/Door_Post.mat
+- Assets/Materials/Bathroom/Bathtub_Leg.mat
+- Assets/Materials/DiningRoom/CandleStick.mat
+- Assets/Materials/VFX/Steam.mat
+- Assets/Materials/Characters/Gargoyle.mat
+Dependencies:
+- D:/unityProject/LuaFrameWork2020/AssetBundles/StandaloneWindows/shaders
+- D:/unityProject/LuaFrameWork2020/AssetBundles/StandaloneWindows/textures

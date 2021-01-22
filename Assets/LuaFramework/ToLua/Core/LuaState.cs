@@ -154,10 +154,6 @@ namespace LuaInterface
             EndModule();//Collections     
             EndModule();//end System
 
-            //注册ParticleSystemWrap类
-            UnityEngine_ParticleSystemWrap.Register(this);
-            UnityEngine_MeshRendererWrap.Register(this);
-
             BeginModule("LuaInterface");
             LuaInterface_LuaOutWrap.Register(this);
             LuaInterface_EventObjectWrap.Register(this);
@@ -1742,6 +1738,11 @@ namespace LuaInterface
             return 0;
         }
 
+        public void StepCollect()
+        {
+            translator.StepCollect();
+        }
+
         public void RefreshDelegateMap()
         {
             List<long> list = new List<long>();
@@ -2023,6 +2024,7 @@ namespace LuaInterface
             if (injectionState == this)
             {
                 injectionState = null;
+                LuaInjectionStation.Clear();
             }
 
 #if UNITY_EDITOR

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2495852647
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: df5e1ee208b8ee9dc354991504c9dd46
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 946c7975e10b0f1edbbc05382ba4ce21
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Shaders/SpookyStandardShader.shader
+- Assets/Shaders/PlaneFog.shader
+- Assets/Shaders/ToonShader.shader
+Dependencies: []

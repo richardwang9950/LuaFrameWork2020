@@ -1,0 +1,43 @@
+ManifestFileVersion: 0
+CRC: 2812689
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3e6aace6cf645960f1a1207b028213a8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 614766fa85d0744672b903adbff60a0d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/Ghost.prefab
+Dependencies:
+- D:/unityProject/LuaFrameWork2020/AssetBundles/StandaloneWindows/common

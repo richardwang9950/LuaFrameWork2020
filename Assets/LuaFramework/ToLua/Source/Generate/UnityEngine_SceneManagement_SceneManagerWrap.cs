@@ -228,32 +228,17 @@ public class UnityEngine_SceneManagement_SceneManagerWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				UnityEngine.SceneManagement.SceneManager.LoadScene(arg0);
-				return 0;
-			}
-			else if (count == 1 && TypeChecker.CheckTypes<int>(L, 1))
+			if (count == 1 && TypeChecker.CheckTypes<int>(L, 1))
 			{
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.SceneManagement.SceneManager.LoadScene(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes<string, UnityEngine.SceneManagement.LoadSceneMode>(L, 1))
+			else if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
-				UnityEngine.SceneManagement.LoadSceneMode arg1 = (UnityEngine.SceneManagement.LoadSceneMode)ToLua.ToObject(L, 2);
-				UnityEngine.SceneManagement.SceneManager.LoadScene(arg0, arg1);
+				UnityEngine.SceneManagement.SceneManager.LoadScene(arg0);
 				return 0;
-			}
-			else if (count == 2 && TypeChecker.CheckTypes<string, UnityEngine.SceneManagement.LoadSceneParameters>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				UnityEngine.SceneManagement.LoadSceneParameters arg1 = StackTraits<UnityEngine.SceneManagement.LoadSceneParameters>.To(L, 2);
-				UnityEngine.SceneManagement.Scene o = UnityEngine.SceneManagement.SceneManager.LoadScene(arg0, arg1);
-				ToLua.PushValue(L, o);
-				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes<int, UnityEngine.SceneManagement.LoadSceneMode>(L, 1))
 			{
@@ -265,6 +250,21 @@ public class UnityEngine_SceneManagement_SceneManagerWrap
 			else if (count == 2 && TypeChecker.CheckTypes<int, UnityEngine.SceneManagement.LoadSceneParameters>(L, 1))
 			{
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
+				UnityEngine.SceneManagement.LoadSceneParameters arg1 = StackTraits<UnityEngine.SceneManagement.LoadSceneParameters>.To(L, 2);
+				UnityEngine.SceneManagement.Scene o = UnityEngine.SceneManagement.SceneManager.LoadScene(arg0, arg1);
+				ToLua.PushValue(L, o);
+				return 1;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes<string, UnityEngine.SceneManagement.LoadSceneMode>(L, 1))
+			{
+				string arg0 = ToLua.ToString(L, 1);
+				UnityEngine.SceneManagement.LoadSceneMode arg1 = (UnityEngine.SceneManagement.LoadSceneMode)ToLua.ToObject(L, 2);
+				UnityEngine.SceneManagement.SceneManager.LoadScene(arg0, arg1);
+				return 0;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes<string, UnityEngine.SceneManagement.LoadSceneParameters>(L, 1))
+			{
+				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.SceneManagement.LoadSceneParameters arg1 = StackTraits<UnityEngine.SceneManagement.LoadSceneParameters>.To(L, 2);
 				UnityEngine.SceneManagement.Scene o = UnityEngine.SceneManagement.SceneManager.LoadScene(arg0, arg1);
 				ToLua.PushValue(L, o);

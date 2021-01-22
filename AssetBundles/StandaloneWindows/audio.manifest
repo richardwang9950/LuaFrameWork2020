@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3396019871
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e05e25b91232c46281079f26dd798cb2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Audio/SFXCandle.wav
+- Assets/Audio/SFXHouseAmbience.wav
+- Assets/Audio/SFXBuzzingLight.wav
+- Assets/Audio/SFXWin.wav
+- Assets/Audio/SFXFootstepsLooping.wav
+- Assets/Audio/SFXGameOver.wav
+- Assets/Audio/SFXGhostMove.wav
+Dependencies: []

@@ -250,7 +250,17 @@ public class DG_Tweening_DOTweenWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 4 && TypeChecker.CheckTypes<DG.Tweening.Core.DOGetter<float>, DG.Tweening.Core.DOSetter<float>, float, float>(L, 1))
+			if (count == 4 && TypeChecker.CheckTypes<DG.Tweening.Core.DOSetter<float>, float, float, float>(L, 1))
+			{
+				DG.Tweening.Core.DOSetter<float> arg0 = (DG.Tweening.Core.DOSetter<float>)ToLua.ToObject(L, 1);
+				float arg1 = (float)LuaDLL.lua_tonumber(L, 2);
+				float arg2 = (float)LuaDLL.lua_tonumber(L, 3);
+				float arg3 = (float)LuaDLL.lua_tonumber(L, 4);
+				DG.Tweening.Tweener o = DG.Tweening.DOTween.To(arg0, arg1, arg2, arg3);
+				ToLua.PushObject(L, o);
+				return 1;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<DG.Tweening.Core.DOGetter<float>, DG.Tweening.Core.DOSetter<float>, float, float>(L, 1))
 			{
 				DG.Tweening.Core.DOGetter<float> arg0 = (DG.Tweening.Core.DOGetter<float>)ToLua.ToObject(L, 1);
 				DG.Tweening.Core.DOSetter<float> arg1 = (DG.Tweening.Core.DOSetter<float>)ToLua.ToObject(L, 2);
@@ -385,16 +395,6 @@ public class DG_Tweening_DOTweenWrap
 				DG.Tweening.Core.DOGetter<UnityEngine.RectOffset> arg0 = (DG.Tweening.Core.DOGetter<UnityEngine.RectOffset>)ToLua.ToObject(L, 1);
 				DG.Tweening.Core.DOSetter<UnityEngine.RectOffset> arg1 = (DG.Tweening.Core.DOSetter<UnityEngine.RectOffset>)ToLua.ToObject(L, 2);
 				UnityEngine.RectOffset arg2 = (UnityEngine.RectOffset)ToLua.ToObject(L, 3);
-				float arg3 = (float)LuaDLL.lua_tonumber(L, 4);
-				DG.Tweening.Tweener o = DG.Tweening.DOTween.To(arg0, arg1, arg2, arg3);
-				ToLua.PushObject(L, o);
-				return 1;
-			}
-			else if (count == 4 && TypeChecker.CheckTypes<DG.Tweening.Core.DOSetter<float>, float, float, float>(L, 1))
-			{
-				DG.Tweening.Core.DOSetter<float> arg0 = (DG.Tweening.Core.DOSetter<float>)ToLua.ToObject(L, 1);
-				float arg1 = (float)LuaDLL.lua_tonumber(L, 2);
-				float arg2 = (float)LuaDLL.lua_tonumber(L, 3);
 				float arg3 = (float)LuaDLL.lua_tonumber(L, 4);
 				DG.Tweening.Tweener o = DG.Tweening.DOTween.To(arg0, arg1, arg2, arg3);
 				ToLua.PushObject(L, o);

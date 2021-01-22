@@ -55,18 +55,6 @@ public static class CustomSettings
     //在这里添加你要导出注册到lua的类型列表
     public static BindType[] customTypeList =
     {                
-        //------------------------为例子导出--------------------------------
-        //_GT(typeof(TestEventListener)),
-        //_GT(typeof(TestProtol)),
-        //_GT(typeof(TestAccount)),
-        //_GT(typeof(Dictionary<int, TestAccount>)).SetLibName("AccountMap"),
-        //_GT(typeof(KeyValuePair<int, TestAccount>)),
-        //_GT(typeof(Dictionary<int, TestAccount>.KeyCollection)),
-        //_GT(typeof(Dictionary<int, TestAccount>.ValueCollection)),
-        //_GT(typeof(TestExport)),
-        //_GT(typeof(TestExport.Space)),
-        //-------------------------------------------------------------------        
-                        
         _GT(typeof(LuaInjectionStation)),
         _GT(typeof(InjectType)),
         _GT(typeof(Debugger)).SetNameSpace(null),          
@@ -82,7 +70,7 @@ public static class CustomSettings
         _GT(typeof(DG.Tweening.RotateMode)),
         _GT(typeof(Component)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Transform)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
-       // _GT(typeof(Light)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
+        _GT(typeof(Light)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Material)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Rigidbody)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
         _GT(typeof(Camera)).AddExtendType(typeof(DG.Tweening.ShortcutExtensions)),
@@ -127,7 +115,7 @@ public static class CustomSettings
         _GT(typeof(SceneManager)),
 
 
-        //_GT(typeof(ParticleSystem)),
+        _GT(typeof(ParticleSystem)),
         _GT(typeof(AsyncOperation)).SetBaseType(typeof(System.Object)),        
         _GT(typeof(LightType)),
         _GT(typeof(SleepTimeout)),
@@ -141,8 +129,9 @@ public static class CustomSettings
         _GT(typeof(Space)),      
        
        
-       // _GT(typeof(MeshRenderer)),
+        _GT(typeof(MeshRenderer)),
 #if !UNITY_5_4_OR_NEWER
+
         _GT(typeof(ParticleEmitter)),
         _GT(typeof(ParticleRenderer)),
         _GT(typeof(ParticleAnimator)), 
@@ -162,7 +151,7 @@ public static class CustomSettings
         _GT(typeof(PlayMode)),
         _GT(typeof(WrapMode)),
 
-        //_GT(typeof(QualitySettings)),
+        _GT(typeof(QualitySettings)),
         _GT(typeof(RenderSettings)),                                                   
         _GT(typeof(SkinWeights)),           
         _GT(typeof(RenderTexture)), 

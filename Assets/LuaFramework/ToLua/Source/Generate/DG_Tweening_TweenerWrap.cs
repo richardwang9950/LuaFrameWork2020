@@ -500,18 +500,18 @@ public class DG_Tweening_TweenerWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes<DG.Tweening.Tween, DG.Tweening.UpdateType>(L, 1))
+			if (count == 2 && TypeChecker.CheckTypes<DG.Tweening.Tween, bool>(L, 1))
 			{
 				DG.Tweening.Tweener obj = (DG.Tweening.Tweener)ToLua.ToObject(L, 1);
-				DG.Tweening.UpdateType arg0 = (DG.Tweening.UpdateType)ToLua.ToObject(L, 2);
+				bool arg0 = LuaDLL.lua_toboolean(L, 2);
 				DG.Tweening.Tween o = obj.SetUpdate(arg0);
 				ToLua.PushObject(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes<DG.Tweening.Tween, bool>(L, 1))
+			else if (count == 2 && TypeChecker.CheckTypes<DG.Tweening.Tween, DG.Tweening.UpdateType>(L, 1))
 			{
 				DG.Tweening.Tweener obj = (DG.Tweening.Tweener)ToLua.ToObject(L, 1);
-				bool arg0 = LuaDLL.lua_toboolean(L, 2);
+				DG.Tweening.UpdateType arg0 = (DG.Tweening.UpdateType)ToLua.ToObject(L, 2);
 				DG.Tweening.Tween o = obj.SetUpdate(arg0);
 				ToLua.PushObject(L, o);
 				return 1;

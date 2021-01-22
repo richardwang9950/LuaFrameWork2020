@@ -1,0 +1,192 @@
+ManifestFileVersion: 0
+CRC: 3568453980
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a0d4ab99ebd3db504f3edb567b08339d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3214fa2972e8c1d9af03e55f45ffa18b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/Bathroom/BathTub.fbx
+- Assets/Textures/Corridor/Window_Normal.tif
+- Assets/Materials/Corridor/Window.mat
+- Assets/Models/Diningroom/Rug.FBX
+- Assets/Textures/DiningRoom/Fireplace_MetallicSmooth.tif
+- Assets/Materials/BedRoom/Wardrobe.mat
+- Assets/Models/Corridor/Wall_Straight_Exterior_03.fbx
+- Assets/Textures/BathRoom/Pipe_Occlusion.tif
+- Assets/Textures/BathRoom/Bathtub_MetallicSmooth.tif
+- Assets/Models/Bathroom/Sink.fbx
+- Assets/Textures/DiningRoom/Chair_MetallicSmooth.tif
+- Assets/Models/Bathroom/Mirror.fbx
+- Assets/Models/Corridor/Wall_Straight_Exterior_04.fbx
+- Assets/Textures/Corridor/Light_Albedo.tif
+- Assets/Textures/Corridor/Light_MetallicSmooth.tif
+- Assets/Models/Bathroom/Bathtub_Leg.fbx
+- Assets/Textures/BedRoom/Bed_Occlusion.tif
+- Assets/Textures/BedRoom/Wardrobe_albedo.tif
+- Assets/Textures/DiningRoom/Cthulhu_Lamp_Normal.tif
+- Assets/Textures/Corridor/Light_Emissive.tif
+- Assets/Audio/SFXCandle.wav
+- Assets/Textures/DiningRoom/Rug_Normal.tif
+- Assets/Materials/Corridor/Wall_Corridor.mat
+- Assets/Textures/DiningRoom/Rug_Albedo.tif
+- Assets/Textures/DiningRoom/Table_Normal.tif
+- Assets/Textures/DiningRoom/CandleStick_Occlusion.tif
+- Assets/Textures/BathRoom/Sink_Albedo.tif
+- Assets/Models/Corridor/Rug_Corridor.FBX
+- Assets/Materials/BedRoom/Bed.mat
+- Assets/Textures/BathRoom/Sink_Occlusion.tif
+- Assets/Textures/BathRoom/BathtubLeg_Albedo.tif
+- Assets/Materials/DiningRoom/Monster_Lamp.mat
+- Assets/Models/Corridor/Wall_Window_02.fbx
+- Assets/Textures/BathRoom/Radiator_Occlusion.tif
+- Assets/Textures/Corridor/Window_Occlusion.tif
+- Assets/Textures/BedRoom/Wardrobe_metallic.tif
+- Assets/Materials/DiningRoom/Clock.mat
+- Assets/Models/Corridor/Wall_Window_01.fbx
+- Assets/Textures/BathRoom/BathtubLeg_MetallicSmooth.tif
+- Assets/Textures/BedRoom/Bed_Normal.tif
+- Assets/Textures/BathRoom/Radiator_Albedo.tif
+- Assets/Textures/DiningRoom/CandleStick_Albedo.tif
+- Assets/Textures/Corridor/DoorPost_Albedo.tif
+- Assets/Textures/DiningRoom/Cthulhu_Lamp_Albedo.tif
+- Assets/Materials/Bathroom/Radiator.mat
+- Assets/Materials/Bathroom/Pipes.mat
+- Assets/Materials/DiningRoom/Fireplace.mat
+- Assets/Materials/Corridor/Light_Glass.mat
+- Assets/Audio/SFXBuzzingLight.wav
+- Assets/Materials/Bathroom/Sink.mat
+- Assets/Textures/DiningRoom/Table_Albedo.tif
+- Assets/Textures/VFX/Splash04Albedo.tif
+- Assets/Textures/DiningRoom/Chair_Occlusion.tif
+- Assets/Textures/BedRoom/Bed_MetallicSmooth.tif
+- Assets/Textures/DiningRoom/Rug_MetallicSmooth.tif
+- Assets/Textures/VFX/wispySmoke.tif
+- Assets/Materials/Bathroom/Mirror.mat
+- Assets/Shaders/SpookyStandardShader.shader
+- Assets/Models/Bedroom/Bedside_Table.fbx
+- Assets/Models/Corridor/Wall_Corner_Interior.fbx
+- Assets/Models/Diningroom/Table.FBX
+- Assets/Textures/Corridor/DoorPost_MetallicSmooth.tif
+- Assets/Models/Diningroom/Chair_01.FBX
+- Assets/Textures/BathRoom/Bathtub_Normal.tif
+- Assets/Textures/BathRoom/Bathtub_Occlusion.tif
+- Assets/Textures/VFX/CandleFlame.tif
+- Assets/Models/Bathroom/Pipe.fbx
+- Assets/Models/Corridor/Wall_Straight_01.fbx
+- Assets/Textures/Corridor/Window_Albedo.tif
+- Assets/Materials/BedRoom/Bedside.mat
+- Assets/Materials/Bathroom/Bathtub.mat
+- Assets/Materials/Corridor/Light.mat
+- Assets/Textures/DiningRoom/Clock_MetallicSmooth.tif
+- Assets/Textures/BedRoom/Bed_Albedo.tif
+- Assets/Materials/VFX/CandleFlame.mat
+- Assets/Models/Corridor/Light.FBX
+- Assets/Textures/BathRoom/Radiator_MetallicSmooth.tif
+- Assets/Models/Corridor/Wall_Straight_02.fbx
+- Assets/Textures/DiningRoom/Cthulhu_Lamp_MetallicSmooth.tif
+- Assets/Textures/Corridor/Wall_Corridor_Occlusion.tif
+- Assets/Models/Corridor/Wall_Corner_Exterior_Out.fbx
+- Assets/Textures/BathRoom/Pipe_Normal.tif
+- Assets/Models/Corridor/EndPost.FBX
+- Assets/Textures/BathRoom/Pipe_Albedo.tif
+- Assets/Textures/DiningRoom/Clock_Albedo.tif
+- Assets/Textures/DiningRoom/Fireplace_Normal.tif
+- Assets/Textures/BathRoom/BathtubLeg_Occlusion.tif
+- Assets/Models/Diningroom/Chair_02.FBX
+- Assets/Textures/Corridor/Window_MetallicSmooth.tif
+- Assets/Textures/Characters/Ghost_Emissive.tif
+- Assets/Textures/BathRoom/Mirror_Normal.tif
+- Assets/Textures/DiningRoom/Fireplace_Occlusion.tif
+- Assets/Textures/Corridor/DoorPost_Occlusion.tif
+- Assets/Models/Corridor/Wall_Corner_Exterior_In.fbx
+- Assets/Textures/DiningRoom/Cthulhu_Lamp_Occlusion.tif
+- Assets/Textures/BedRoom/Wardrobe_normal.tif
+- Assets/Textures/DiningRoom/Clock_Occlusion.tif
+- Assets/Materials/VFX/Emissive.mat
+- Assets/Textures/VFX/Splash04Normal.tif
+- Assets/Materials/Bathroom/BathtubLeg.mat
+- Assets/Textures/Corridor/Light_Occlusion.tif
+- Assets/Materials/DiningRoom/Table.mat
+- Assets/Models/Diningroom/Clock.FBX
+- Assets/Textures/BedRoom/BedSide_Albedo.tif
+- Assets/Textures/DiningRoom/Table_Occlusion.tif
+- Assets/Textures/Corridor/Wall_Corridor_Normal.tif
+- Assets/Textures/DiningRoom/CandleStick_Normal.tif
+- Assets/Materials/DiningRoom/Chair.mat
+- Assets/Textures/Corridor/Wall_Corridor_Albedo.tif
+- Assets/Textures/DiningRoom/Table_MetallicSmooth.tif
+- Assets/Textures/BathRoom/Pipe_MetallicSmooth.tif
+- Assets/Textures/BedRoom/BedSide_Occlusion.tif
+- Assets/Textures/BedRoom/BedSide_Normal.tif
+- Assets/Models/Bedroom/Bed.FBX
+- Assets/Textures/DiningRoom/Fireplace_Albedo.tif
+- Assets/Textures/Characters/Ghost_Albedo.tif
+- Assets/Textures/BedRoom/BedSide_Metalness.tif
+- Assets/Textures/Characters/Ghost_RimMask.tif
+- Assets/Textures/BedRoom/Wardrobe_Occlusion.tif
+- Assets/Materials/VFX/WaterDropSmall.mat
+- Assets/Textures/BathRoom/Mirror_Albedo.tif
+- Assets/Models/Diningroom/CandleStick.FBX
+- Assets/Materials/Corridor/Rugs.mat
+- Assets/Textures/DiningRoom/Clock_Normal.tif
+- Assets/Textures/VFX/SplatNormal.tif
+- Assets/Models/Diningroom/Fireplace.FBX
+- Assets/Textures/BathRoom/Sink_Normal.tif
+- Assets/Textures/Corridor/DoorPost_Normal.tif
+- Assets/Models/Corridor/Door.FBX
+- Assets/Models/Corridor/Wall_Windows_Straight.fbx
+- Assets/Models/Bedroom/Wardrobe.fbx
+- Assets/Textures/BathRoom/Bathtub_Albedo.tif
+- Assets/Materials/VFX/Splash.mat
+- Assets/Models/Bathroom/Radiator.fbx
+- Assets/Textures/DiningRoom/Chair_Normals.tif
+- Assets/Models/Diningroom/Monster_Lamp.fbx
+- Assets/Textures/DiningRoom/Chair_Albedo.tif
+- Assets/Textures/BathRoom/Sink_MetallicSmooth.tif
+- Assets/Textures/Corridor/Light_Normal.tif
+- Assets/Textures/VFX/DustMote.png
+- Assets/Textures/Characters/Ghost_Normal.tif
+- Assets/Textures/BathRoom/Radiator_Normal.tif
+- Assets/Textures/VFX/SphereAlbedo.tif
+- Assets/Textures/Corridor/Wall_Corridor_MetallicSmooth.tif
+- Assets/Materials/VFX/DustMote.mat
+- Assets/Materials/Characters/Ghost.mat
+- Assets/Materials/Corridor/Door_Post.mat
+- Assets/Models/Characters/Ghost.fbx
+- Assets/Materials/DiningRoom/CandleStick.mat
+- Assets/Textures/DiningRoom/Rug_Occlusion.tif
+- Assets/Materials/VFX/Steam.mat
+- Assets/Models/VFX/DropSplash.fbx
+- Assets/Textures/DiningRoom/CandleStick_MetallicSmooth.tif
+Dependencies: []
