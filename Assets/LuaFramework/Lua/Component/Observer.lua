@@ -17,10 +17,10 @@ function Observer:Update(gameObject)
   
     if(self.m_IsPlayerInRange)then 
         local direction= self.player.position-gameObject.transform.position;
-        local ray= Ray.New(gameObject.transform.position,direction)
+          local ray = Ray(gameObject.transform.position, direction)
         Debug.DrawRay(gameObject.transform.position, direction,Color.red);
         if (Physics.Raycast(ray)) then
-         local isRay,raycastHit=Physics.Raycast(ray, nil)
+        local isRay, raycastHit = Physics.Raycast(ray, nil, 100, 2^Layer
              if (isRay) then 
                 if (raycastHit.collider.transform == self.player) then
                     self.gameEnding:CaughtPlayer();
